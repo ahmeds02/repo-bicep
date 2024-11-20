@@ -23,7 +23,7 @@ push:
         with: 
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 
-        -name: Deploy the Bicep script
+      - name: Deploy the Bicep script
          uses: azure/arm-deploy@v2
          with:
             resourceGroupName: "WebAppGroup"
