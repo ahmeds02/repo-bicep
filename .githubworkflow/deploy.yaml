@@ -1,0 +1,28 @@
+
+
+name: deploy azure resources
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+
+    - name: set up azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secret.AZURE_CREDENTIALS }}
+
+    - name: Install Bicep CLI
+      run: !
+        curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+        chmod +x ./bicep
+        sudo mv ./bicep /usr/local/bin/bicep
+    - name: Build and deploy azure_resouce.bicep
+      run: !
+        bicep build azure-resouces.bicep
+        az deployment sub create --name mydeployment --location westus2 --template file ./azure-resouce.json
