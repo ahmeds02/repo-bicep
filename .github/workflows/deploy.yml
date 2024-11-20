@@ -1,7 +1,7 @@
-name: azure bicep deploy
+
 
 on: [push]
-
+name: azure bicep deploy
 push: 
   branches: ["main"]
 
