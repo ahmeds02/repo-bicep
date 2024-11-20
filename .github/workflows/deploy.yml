@@ -10,7 +10,6 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
-      persist-credentials: false
 
     - name: set up azure CLI
       uses: azure/login@v1
