@@ -1,5 +1,3 @@
-
-
 name: deploy azure resources
 on:
   push:
@@ -8,6 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
