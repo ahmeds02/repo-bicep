@@ -10,13 +10,13 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
-    - name: well
-      uses: echo 
+   
     - name: set up azure CLI
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+    - name: passed credentials successfully
+      run: "echo passed credentials successfully "
     - name: Install Bicep CLI
       run: 
         "curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
