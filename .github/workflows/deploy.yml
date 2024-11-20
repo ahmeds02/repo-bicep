@@ -22,6 +22,6 @@ jobs:
         chmod +x ./bicep
         sudo mv ./bicep /usr/local/bin/bicep"
     - name: Build and deploy azure_resouce.bicep
-      run: !
+      run: 
         "bicep build azure-resouces.bicep
         az deployment sub create --name mydeployment --location westus2 --template file ./azure-resouce.bicep"
