@@ -15,7 +15,7 @@ jobs:
     - name: set up azure CLI
       uses: azure/login@v1
       with:
-        creds: ${{ secret.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Bicep CLI
       run: !
