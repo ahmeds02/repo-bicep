@@ -28,7 +28,8 @@ jobs:
           # Verify you can now access the 'bicep' command
           bicep --help
           # Done!"
-    - name: Build and deploy azure_resouce.bicep
-      run: 
-        "bicep build azure-resouces.bicep
-        az deployment sub create --name mydeployment --location westus2 --template file */*"
+    - name: Deploy the Bicep script
+      uses: azure/arm-deploy@v1
+      with:
+            resourceGroupName: "WebAppGroup"
+            template: azure-resource.bicep 
