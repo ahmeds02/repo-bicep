@@ -16,7 +16,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: passed credentials 
-      run: "echo passed credentials successfully "
+      run: "echo passed credentials successfully. "
     - name: Install Bicep CLI
       run: 
         "# Fetch the latest Bicep CLI binary
