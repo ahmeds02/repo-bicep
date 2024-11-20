@@ -1,27 +1,30 @@
-name: deploy azure resources
-on:
-  push:
-    branches:
-      - main
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+name: azure bicep deploy
 
-    steps:
-    - name: checkout repo
-      uses: actions/checkout@v2
+on: 
 
-    - name: set up azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+push: 
+  branches: ["master"]
 
-    - name: Install Bicep CLI
-      run: !
-        curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
-        chmod +x ./bicep
-        sudo mv ./bicep /usr/local/bin/bicep
-    - name: Build and deploy azure_resouce.bicep
-      run: !
-        bicep build azure-resouces.bicep
-        az deployment sub create --name mydeployment --location westus2 --template file ./azure-resouce.bicep
+  jobs:
+   
+   build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Echo script
+        run: echo starting bicep..
+
+      - name: login with azure
+        uses: azure/login@v1
+        with: 
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+
+        -name: Deploy the Bicep script
+         uses: azure/arm-deploy@v1
+         with:
+            resourceGroupName: "WebAppGroup"
+            template: azure-resource.bicep 
