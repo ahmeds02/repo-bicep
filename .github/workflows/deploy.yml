@@ -31,4 +31,4 @@ jobs:
     - name: Build and deploy azure_resouce.bicep
       run: 
         "bicep build azure-resouces.bicep
-        az deployment sub create --name mydeployment --location westus2 --template file */azure-resouce.bicep"
+        az deployment sub create --name mydeployment --location westus2 --template file */*"
