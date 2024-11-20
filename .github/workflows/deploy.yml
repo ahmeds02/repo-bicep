@@ -17,11 +17,11 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Bicep CLI
-      run: !
-        curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+      run: 
+        "curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
         chmod +x ./bicep
-        sudo mv ./bicep /usr/local/bin/bicep
+        sudo mv ./bicep /usr/local/bin/bicep"
     - name: Build and deploy azure_resouce.bicep
       run: !
-        bicep build azure-resouces.bicep
-        az deployment sub create --name mydeployment --location westus2 --template file ./azure-resouce.bicep
+        "bicep build azure-resouces.bicep
+        az deployment sub create --name mydeployment --location westus2 --template file ./azure-resouce.bicep"
