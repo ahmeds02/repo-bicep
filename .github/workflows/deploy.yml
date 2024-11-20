@@ -15,8 +15,8 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: passed credentials successfully
-      run: "echo passed credentials successfully "
+    - name: passed credentials 
+      run: "echo passed credentials successfully... "
     - name: Install Bicep CLI
       run: 
         "curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
