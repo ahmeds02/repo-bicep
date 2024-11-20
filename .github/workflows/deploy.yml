@@ -25,6 +25,6 @@ push:
 
       - name: Deploy the Bicep script
         uses: azure/arm-deploy@v2
-         with:
-            resourceGroupName: "WebAppGroup"
+        with:
+           resourceGroupName: "WebAppGroup"
             template: azure-resource.bicep 
