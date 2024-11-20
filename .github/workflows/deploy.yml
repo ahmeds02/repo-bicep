@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - checkout: self
-
     - name: checkout repo
       uses: actions/checkout@v2
    
