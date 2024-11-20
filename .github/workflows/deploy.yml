@@ -27,4 +27,4 @@ push:
         uses: azure/arm-deploy@v1
         with:
           resourceGroupName: "WebAppGroup"
-          template: azure-resource.json 
+          template: azure-resource.bicep 
